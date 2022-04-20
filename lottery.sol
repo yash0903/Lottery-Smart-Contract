@@ -1,14 +1,16 @@
 //SPDX-License-Identifier:MIT
 pragma solidity ^0.8.0;
 
+//creating lottery contract 
 contract Lottery {
-    address public manager;
-    address payable[] public players;
+    address public manager; //Decalring  the manager or the one who  will deploy contract
+    address payable[] public players; //Array for storing the address of players
 
     constructor(){
         manager = msg.sender;
     }
-
+    
+    //function for checking whether player has alreaedy entered or not 
     function alreadyEntered() view private returns(bool){
         for(uint i=0;i<players.length;i++){
             if(players[i] == msg.sender)
